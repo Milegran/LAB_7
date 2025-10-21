@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - Feria Académica 2025</title>
+  <link rel="stylesheet" href="Styles/registro_style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <!-- Logo en la esquina superior izquierda -->
+    <div class="left-header">
+      <a href="index.html" class="logo-link">
+        <img src="https://www.pngkey.com/png/full/345-3453447_seleccione-la-sede-logo-de-la-universidad-latina.png" alt="Logo Universidad" class="logo-img">
+      </a>
+    </div>
+
+    <!-- Título centrado -->
+    <div class="center-header">
+      <h1>Feria Académica 2025</h1>
+    </div>
+
+    <!-- Menú y Registro en la esquina superior derecha -->
+    <nav class="right-header" aria-label="Navegación principal">
+      <a class="registro-btn" href="registro.html">Registro</a>
+      <!-- Checkbox para controlar el menú (no-JS) -->
+      <input id="menu-toggle" type="checkbox" />
+      <label for="menu-toggle" class="menu-button" aria-hidden="true">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </label>
+
+      <ul class="menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="carreras.html">Carreras disponibles</a></li>
+        <li role="none"><a role="menuitem" href="horarios.html">Horarios de charlas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <form class="formulario">
+      <h2>Iniciar Sesión</h2>
+
+      <label for="usuario">Usuario</label>
+      <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario" required>
+
+      <label for="password">Contraseña</label>
+      <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+
+      <button type="submit" class="btn">Acceder</button>
+
+      <div class="divider">o</div>
+
+      <button type="button" class="btn-google">
+        <img src="https://www.svgrepo.com/show/355037/google.svg" alt="Google">
+        Acceder con Google
+      </button>
+
+      <p class="crear-cuenta">
+        ¿No tienes cuenta?
+        <a href="#">Crear una nueva</a>
+      </p>
+    </form>
+  </main>
+
+</body>
+</html>

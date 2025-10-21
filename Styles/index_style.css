@@ -1,0 +1,229 @@
+/* Reset y caja */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Variables de color */
+:root{
+  --azul: #054f99;
+  --azul-oscuro: #023e74;
+  --amarillo: #f7c700;
+  --gris-claro: #ffffff; /* Fondo principal blanco */
+  --texto: #023e74;      /* Texto principal azul oscuro */
+}
+
+/* Tipografía y fondo */
+body{
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  /* Fondo con imagen y superposición blanca para legibilidad */
+  background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070&auto=format&fit=crop');
+  color: #333; /* Un gris oscuro para el texto del cuerpo para mejor legibilidad */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  line-height: 1.5;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER: tres áreas (izquierda, centro, derecha) */
+.site-header{
+  background: var(--azul);
+  color: #fff;
+  padding: 12px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* Registro a la izquierda */
+.left-header { display: flex; align-items: center; }
+.logo-link { display: block; height: 50px; } /* Contenedor del logo */
+.logo-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* Hace el logo blanco si es oscuro */
+}
+
+.registro-btn{
+  display: inline-block;
+  background: var(--amarillo);
+  color: #111;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-right: 8px; /* Espacio entre el botón y el menú */
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+.registro-btn:focus,
+.registro-btn:hover{ filter: brightness(1.03); }
+
+/* Título centrado */
+.center-header { text-align: center; }
+.center-header h1{
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Menú hamburguesa a la derecha */
+.right-header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Input controla menú: lo ocultamos visualmente (pero accesible) */
+.right-header input[type="checkbox"]{
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+/* Botón tipo hamburguesa */
+.menu-button{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  align-items: center;
+  padding: 8px;
+  margin-left: 8px;
+}
+.menu-button .bar{
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Menú desplegable (oculto por defecto) */
+.menu{
+  position: absolute;
+  right: 6px;
+  top: calc(100% + 8px);
+  background: var(--azul-oscuro);
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px;
+  min-width: 220px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: none;
+}
+
+/* Enlaces dentro del menú */
+.menu li a{
+  display: block;
+  padding: 10px 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.menu li a:hover,
+.menu li a:focus{ background: rgba(255,255,255,0.06); }
+
+/* Mostrar menú cuando checkbox está marcado */
+.right-header input[type="checkbox"]:checked ~ .menu {
+  display: block;
+}
+
+/* MAIN & tarjetas */
+main{ flex: 1; padding: 44px 18px; }
+.intro{ text-align: center; max-width: 980px; margin: 0 auto 44px; }
+.intro h2{ color: var(--texto); font-size: 1.8rem; margin-bottom: 12px; }
+.intro p{ color: #555; max-width: 760px; margin: 0 auto; font-size: 1.1rem; }
+
+.cards{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.card{
+  background: white;
+  padding: 22px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(2,20,40,0.06);
+  text-align: center;
+}
+.card h3{ margin-bottom: 8px; font-size: 1.1rem; color: var(--texto); }
+.card p{ margin-bottom: 14px; color: #555; line-height: 1.5; }
+.btn{
+  display: inline-block;
+  background: var(--azul);
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+.btn:hover{ background: var(--azul-oscuro); }
+
+/* Sección para imagen destacada */
+.image-showcase {
+  max-width: 1100px;
+  margin: 44px auto 0;
+  padding: 0 12px;
+}
+.image-container {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(2,20,40,0.1);
+}
+.image-container img {
+  width: 100%;
+  display: block;
+}
+
+/* FOOTER */
+.site-footer{
+  background: var(--azul);
+  color: #fff;
+  text-align: center;
+  padding: 14px 18px;
+  margin-top: 30px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .cards{ grid-template-columns: repeat(2, 1fr); padding: 0 12px; }
+  .center-header h1{ font-size: 1.3rem; }
+}
+
+@media (max-width: 620px){
+  /* Menú: conservamos botón, el menu se posiciona full width debajo del header */
+  .site-header{ grid-template-columns: 1fr auto; padding: 10px; }
+  .center-header{ order: 3; grid-column: 1 / -1; }
+  .left-header{ order: 1; }
+  .right-header{ order: 2; }
+  .registro-btn { padding: 8px 10px; font-size: 0.9rem; }
+  .logo-link { height: 44px; }
+
+  .menu{
+    right: 6px;
+    left: 6px;
+    top: calc(100% + 8px);
+    min-width: auto;
+  }
+
+  .cards{ grid-template-columns: 1fr; max-width: 720px; padding: 0 12px; }
+}

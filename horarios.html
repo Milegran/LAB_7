@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horarios de Charlas - Feria Académica 2025</title>
+  <link rel="stylesheet" href="Styles/horarios_style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <!-- Logo en la esquina superior izquierda -->
+    <div class="left-header">
+      <a href="index.html" class="logo-link">
+        <img src="https://www.pngkey.com/png/full/345-3453447_seleccione-la-sede-logo-de-la-universidad-latina.png" alt="Logo Universidad" class="logo-img">
+      </a>
+    </div>
+
+    <!-- Título centrado -->
+    <div class="center-header">
+      <h1>Feria Académica 2025</h1>
+    </div>
+
+    <!-- Menú y Registro en la esquina superior derecha -->
+    <nav class="right-header" aria-label="Navegación principal">
+      <a class="registro-btn" href="registro.html">Registro</a>
+      <!-- Checkbox para controlar el menú (no-JS) -->
+      <input id="menu-toggle" type="checkbox" />
+      <label for="menu-toggle" class="menu-button" aria-hidden="true">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </label>
+
+      <ul class="menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="carreras.html">Carreras disponibles</a></li>
+        <li role="none"><a role="menuitem" href="horarios.html">Horarios de charlas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contenedor">
+
+    <!-- Filtros tipo pestañas -->
+    <div class="tabs">
+      <input type="radio" id="tab1" name="tab" checked>
+      <label for="tab1">Ingeniería</label>
+
+      <input type="radio" id="tab2" name="tab">
+      <label for="tab2">Ciencias</label>
+
+      <input type="radio" id="tab3" name="tab">
+      <label for="tab3">Administración</label>
+
+      <input type="radio" id="tab4" name="tab">
+      <label for="tab4">Diseño</label>
+
+      <!-- Contenido de Ingeniería -->
+      <div class="contenido" id="contenido1">
+        <div class="charlas">
+          <article class="tarjeta">
+            <h2>🌐 Ciberseguridad Moderna</h2>
+            <p><strong>Hora:</strong> 9:00 a.m.</p>
+            <p><strong>Expositor:</strong> Ing. Carlos Torres</p>
+            <p><strong>Facultad:</strong> Ingeniería</p>
+          </article>
+
+          <article class="tarjeta">
+            <h2>🤖 Inteligencia Artificial en la Industria</h2>
+            <p><strong>Hora:</strong> 11:00 a.m.</p>
+            <p><strong>Expositor:</strong> Lic. María Gómez</p>
+            <p><strong>Facultad:</strong> Ingeniería</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Contenido de Ciencias -->
+      <div class="contenido" id="contenido2">
+        <div class="charlas">
+          <article class="tarjeta">
+            <h2>🧪 Innovación en Biotecnología</h2>
+            <p><strong>Hora:</strong> 10:30 a.m.</p>
+            <p><strong>Expositor:</strong> Dra. Ana Rodríguez</p>
+            <p><strong>Facultad:</strong> Ciencias y Tecnología</p>
+          </article>
+
+          <article class="tarjeta">
+            <h2>📊 Ciencia de Datos Aplicada</h2>
+            <p><strong>Hora:</strong> 2:00 p.m.</p>
+            <p><strong>Expositor:</strong> MSc. Pedro Jiménez</p>
+            <p><strong>Facultad:</strong> Ciencias y Tecnología</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Contenido de Administración -->
+      <div class="contenido" id="contenido3">
+        <div class="charlas">
+          <article class="tarjeta">
+            <h2>💼 Liderazgo Empresarial</h2>
+            <p><strong>Hora:</strong> 9:30 a.m.</p>
+            <p><strong>Expositor:</strong> Lic. Sofía Méndez</p>
+            <p><strong>Facultad:</strong> Administración</p>
+          </article>
+
+          <article class="tarjeta">
+            <h2>📈 Estrategias de Marketing Digital</h2>
+            <p><strong>Hora:</strong> 1:00 p.m.</p>
+            <p><strong>Expositor:</strong> Mgtr. Luis Herrera</p>
+            <p><strong>Facultad:</strong> Administración</p>
+          </article>
+        </div>
+      </div>
+
+      <!-- Contenido de Diseño -->
+      <div class="contenido" id="contenido4">
+        <div class="charlas">
+          <article class="tarjeta">
+            <h2>🎨 Tendencias en Diseño UX/UI</h2>
+            <p><strong>Hora:</strong> 10:00 a.m.</p>
+            <p><strong>Expositor:</strong> Lic. Camila Vega</p>
+            <p><strong>Facultad:</strong> Diseño y Comunicación</p>
+          </article>
+
+          <article class="tarjeta">
+            <h2>📷 Branding Visual Contemporáneo</h2>
+            <p><strong>Hora:</strong> 3:00 p.m.</p>
+            <p><strong>Expositor:</strong> Lic. Javier Morales</p>
+            <p><strong>Facultad:</strong> Diseño y Comunicación</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

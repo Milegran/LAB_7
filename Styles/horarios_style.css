@@ -1,0 +1,257 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Paleta de colores unificada */
+:root {
+  --azul: #054f99;
+  --azul-oscuro: #023e74;
+  --amarillo: #f7c700;
+  --blanco: #ffffff;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #e6eef3;
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER: tres áreas (izquierda, centro, derecha) */
+.site-header{
+  background: var(--azul);
+  color: #ffffff;
+  padding: 12px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* Logo a la izquierda */
+.left-header { display: flex; align-items: center; }
+.logo-link { display: block; height: 50px; } /* Contenedor del logo */
+.logo-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* Hace el logo blanco si es oscuro */
+}
+
+.registro-btn{
+  display: inline-block;
+  background: var(--amarillo);
+  color: #111;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-right: 8px; /* Espacio entre el botón y el menú */
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+.registro-btn:focus,
+.registro-btn:hover{ filter: brightness(1.03); }
+
+/* Título centrado */
+.center-header { text-align: center; }
+.center-header h1{
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Menú hamburguesa a la derecha */
+.right-header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Input controla menú: lo ocultamos visualmente (pero accesible) */
+.right-header input[type="checkbox"]{
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+/* Botón tipo hamburguesa */
+.menu-button{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  align-items: center;
+  padding: 8px;
+  margin-left: 8px;
+}
+.menu-button .bar{
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Menú desplegable (oculto por defecto) */
+.menu{
+  position: absolute;
+  right: 6px;
+  top: calc(100% + 8px);
+  background: var(--azul-oscuro);
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px;
+  min-width: 220px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: none;
+}
+
+/* Enlaces dentro del menú */
+.menu li a{
+  display: block;
+  padding: 10px 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.menu li a:hover,
+.menu li a:focus{ background: rgba(255,255,255,0.06); }
+
+/* Mostrar menú cuando checkbox está marcado */
+.right-header input[type="checkbox"]:checked ~ .menu {
+  display: block;
+}
+
+.contenedor {
+  width: 90%;
+  max-width: 1000px;
+  margin: 2rem auto;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las pestañas se ajusten en móvil */
+  background: var(--blanco);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(2,20,40,0.08);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Pestañas */
+.tabs input {
+  display: none;
+}
+
+.tabs label {
+  padding: 1em;
+  background: #f0f5fa;
+  color: var(--azul);
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  text-align: center;
+  flex: 1;
+  transition: all 0.3s;
+}
+
+.tabs label:hover {
+  background: #e6eff9;
+}
+
+.tabs input:checked + label {
+  background: var(--azul);
+  color: var(--blanco);
+  border-bottom: 3px solid var(--amarillo);
+}
+
+/* Contenido */
+.contenido {
+  display: none;
+  padding: 2em;
+  background: var(--blanco);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* Mostrar el contenido seleccionado */
+#tab1:checked ~ #contenido1,
+#tab2:checked ~ #contenido2,
+#tab3:checked ~ #contenido3,
+#tab4:checked ~ #contenido4 {
+  display: block;
+}
+
+/* Tarjetas */
+.charlas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5em;
+}
+
+.tarjeta {
+  background: var(--blanco);
+  border-radius: 15px;
+  padding: 1.5em;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.tarjeta h2 {
+  color: var(--azul-oscuro);
+  font-size: 1.1em;
+  margin-bottom: 0.8em;
+}
+
+.tarjeta p {
+  margin: 0.3em 0;
+  font-size: 0.95em;
+}
+
+@media (max-width: 600px) {
+  .tabs label {
+    font-size: 0.9em;
+    padding: 0.8em;
+  }
+}
+
+@media (max-width: 900px){
+  .center-header h1{ font-size: 1.3rem; }
+}
+
+@media (max-width: 620px){
+  .site-header{ grid-template-columns: 1fr auto; padding: 10px; }
+  .center-header{ order: 3; grid-column: 1 / -1; }
+  .left-header{ order: 1; }
+  .right-header{ order: 2; }
+  .registro-btn { padding: 8px 10px; font-size: 0.9rem; }
+  .logo-link { height: 44px; }
+  .menu{ right: 6px; left: 6px; top: calc(100% + 8px); min-width: auto; }
+}

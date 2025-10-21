@@ -1,0 +1,325 @@
+/* Paleta de colores unificada */
+:root {
+  --azul: #054f99;
+  --azul-oscuro: #023e74;
+  --amarillo: #f7c700;
+  --blanco: #ffffff;
+}
+
+/* --- Reseteo y tipografía --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--blanco);
+  color: #333;
+}
+
+/* HEADER: tres áreas (izquierda, centro, derecha) */
+.site-header{
+  background: var(--azul);
+  color: #fff;
+  padding: 12px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+/* Logo a la izquierda */
+.left-header { display: flex; align-items: center; }
+.logo-link { display: block; height: 50px; } /* Contenedor del logo */
+.logo-img {
+  height: 100%;
+  width: auto;
+  display: block;
+  filter: brightness(0) invert(1); /* Hace el logo blanco si es oscuro */
+}
+
+.registro-btn{
+  display: inline-block;
+  background: var(--amarillo);
+  color: #111;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  margin-right: 8px; /* Espacio entre el botón y el menú */
+  box-shadow: 0 2px 0 rgba(0,0,0,0.1);
+}
+.registro-btn:focus,
+.registro-btn:hover{ filter: brightness(1.03); }
+
+/* Título centrado */
+.center-header { text-align: center; }
+.center-header h1{
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  margin: 0;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* Menú hamburguesa a la derecha */
+.right-header{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+}
+
+/* Input controla menú: lo ocultamos visualmente (pero accesible) */
+.right-header input[type="checkbox"]{
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+  right: 0;
+  top: 0;
+  z-index: 50;
+}
+
+/* Botón tipo hamburguesa */
+.menu-button{
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  align-items: center;
+  padding: 8px;
+  margin-left: 8px;
+}
+.menu-button .bar{
+  width: 22px;
+  height: 2.5px;
+  background: #fff;
+  border-radius: 2px;
+  display: block;
+}
+
+/* Menú desplegable (oculto por defecto) */
+.menu{
+  position: absolute;
+  right: 6px;
+  top: calc(100% + 8px);
+  background: var(--azul-oscuro);
+  border-radius: 8px;
+  list-style: none;
+  padding: 8px;
+  min-width: 220px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  display: none;
+}
+
+/* Enlaces dentro del menú */
+.menu li a{
+  display: block;
+  padding: 10px 12px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.menu li a:hover,
+.menu li a:focus{ background: rgba(255,255,255,0.06); }
+
+/* Mostrar menú cuando checkbox está marcado */
+.right-header input[type="checkbox"]:checked ~ .menu {
+  display: block;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1100px;
+  margin: 2rem auto;
+}
+
+/* Grid de tarjetas */
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+/* Cada facultad: tarjeta principal */
+.facultad {
+  font-family: "Poppins", system-ui, Arial, sans-serif;
+  --color: #0077b6; /* fallback */
+  background: linear-gradient(135deg, var(--azul), var(--azul-oscuro));
+  border-radius: 18px;
+  box-shadow: 0 8px 26px rgba(2, 16, 40, 0.24);
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1 / 1; /* Mantiene la forma cuadrada */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.facultad:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(2, 16, 40, 0.3);
+}
+
+/* Contenedor del contenido principal de la tarjeta (summary) */
+.card-summary {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* Centra horizontalmente el contenido */
+  flex-grow: 1; 
+  cursor: pointer;
+  /* Eliminar marcadores nativos */
+  list-style: none;
+}
+
+/* Asegura la eliminación de los marcadores nativos */
+details summary {
+  list-style: none;
+}
+summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Contenedor del Logo (centrado y transparente) */
+.logo-espacio {
+  /* **AJUSTE: Contenedor de tamaño fijo para uniformidad** */
+  width: 120px;
+  height: 120px;
+  padding: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo-espacio img {
+  /* **AJUSTE: La imagen se adapta al contenedor** */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+/* Título de la Facultad (posicionado en el borde inferior) */
+.titulo-facultad {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+  padding: 0.9rem 1rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), transparent); /* Un poco más de contraste */
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Lista desplegable (Posicionamiento Absoluto) */
+.lista-carreras {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10; /* Asegura que esté por encima de otras tarjetas */
+
+  list-style: none;
+  background: #fff;
+  color: #111;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+  max-height: 0;
+  overflow: hidden;
+  /* Animación smooth para el despliegue */
+  transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), padding 0.4s ease;
+  padding: 0 1.25rem;
+}
+
+details[open] .lista-carreras {
+  max-height: 480px; /* Suficientemente grande para contener la lista */
+  padding: 0.85rem 1.25rem 1rem;
+}
+
+.lista-carreras li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.lista-carreras li:last-child {
+  border-bottom: none;
+}
+
+details[open] {
+  z-index: 5;
+  overflow: visible;
+}
+
+.meta {
+  display: none;
+}
+
+/* Colores de cada facultad */
+.facultad-ingenieria { --color: #e63946; }
+.facultad-ciencias { --color: #2a9d8f; }
+.facultad-admin { --color: #0077b6; }
+.facultad-diseno { --color: #e76f51; }
+.facultad-salud { --color: #52b788; }
+.facultad-humanidades { --color: #8338ec; }
+
+/* Ajuste de tamaño específico para el logo de Salud */
+.facultad-salud .logo-espacio {
+  width: 180px;
+  height: 180px;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  section {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.9rem;
+  }
+  .logo-espacio {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  .titulo-facultad {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+}
+
+@media (max-width: 900px){
+  .center-header h1{ font-size: 1.3rem; }
+}
+
+@media (max-width: 620px){
+  .site-header{ grid-template-columns: 1fr auto; padding: 10px; }
+  .center-header{ order: 3; grid-column: 1 / -1; }
+  .left-header{ order: 1; }
+  .right-header{ order: 2; }
+  .registro-btn { padding: 8px 10px; font-size: 0.9rem; }
+  .logo-link { height: 44px; }
+  .menu{ right: 6px; left: 6px; top: calc(100% + 8px); min-width: auto; }
+}

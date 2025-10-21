@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feria Académica 2025 - Universidad Tecnológica</title>
+  <link rel="stylesheet" href="styles/index_style.css">
+</head>
+<body>
+  <header class="site-header">
+    <!-- Logo en la esquina superior izquierda -->
+    <div class="left-header">
+      <a href="index.html" class="logo-link">
+        <img src="https://www.pngkey.com/png/full/345-3453447_seleccione-la-sede-logo-de-la-universidad-latina.png" alt="Logo Universidad" class="logo-img">
+      </a>
+    </div>
+
+    <!-- Título centrado -->
+    <div class="center-header">
+      <h1>Feria Académica 2025</h1>
+    </div>
+
+    <!-- Menú y Registro en la esquina superior derecha -->
+    <nav class="right-header" aria-label="Navegación principal">
+      <a class="registro-btn" href="registro.html">Registro</a>
+      <!-- Checkbox para controlar el menú (no-JS) -->
+      <input id="menu-toggle" type="checkbox" />
+      <label for="menu-toggle" class="menu-button" aria-hidden="true">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </label>
+
+      <ul class="menu" role="menu" aria-hidden="true">
+        <li role="none"><a role="menuitem" href="carreras.html">Carreras disponibles</a></li>
+        <li role="none"><a role="menuitem" href="horarios.html">Horarios de charlas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>Bienvenida a la Feria Académica 2025</h2>
+      <p>
+        Descubre los programas académicos, conoce los horarios de charlas y regístrate
+        para participar en nuestra feria de orientación universitaria. ¡Tu futuro profesional comienza aquí!
+      </p>
+    </section>
+
+    <section class="cards" aria-label="Accesos rápidos">
+      <article class="card">
+        <h3>🎓 Carreras disponibles</h3>
+        <p>Explora la variedad de programas académicos que ofrece la universidad.</p>
+        <a class="btn" href="carreras.html">Ver carreras</a>
+      </article>
+
+      <article class="card">
+        <h3>🕒 Horarios de charlas</h3>
+        <p>Consulta el calendario de charlas informativas por facultad.</p>
+        <a class="btn" href="horarios.html">Ver horarios</a>
+      </article>
+
+      <article class="card">
+        <h3>📝 Registro</h3>
+        <p>Regístrate en línea para asistir a la Feria Académica 2025.</p>
+        <a class="btn" href="registro.html">Ir al registro</a>
+      </article>
+    </section>
+
+    <section class="image-showcase">
+      <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=2070&auto=format&fit=crop" alt="Campus universitario">
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 Universidad Tecnológica pero Universidad latina para este proyecto | Feria Académica</p>
+  </footer>
+</body>
+</html>
